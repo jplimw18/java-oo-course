@@ -9,6 +9,21 @@ public abstract class Title {
     private int totalReviews;
     private int durationInMinutes;
 
+    public Title(String title) {
+        this.title = title;
+    }
+
+    public Title(String title, int year) {
+        this.title = title;
+        this.year = year;
+    }
+
+    public Title(String title, int year, String description) {
+        this.title = title;
+        this.year = year;
+        this.description = description;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -68,6 +83,16 @@ public abstract class Title {
         System.out.printf("Duração: %d %s\n", getDurationInMinutes(), getDurationInMinutes() > 1 ? "minutos" : "minuto");
         System.out.printf("Descrição: %s\n", description);
         System.out.println("=".repeat(32 + title.length()));
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                Título: %s
+                Ano: %d
+                Avaliação: %.1f/10
+                Descrição: %s
+                """, title, year, getAverageRate(),getDescription());
     }
 }
 

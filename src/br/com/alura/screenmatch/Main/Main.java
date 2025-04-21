@@ -1,13 +1,17 @@
+package br.com.alura.screenmatch.Main;
+
 import br.com.alura.screenmatch.models.Episode;
 import br.com.alura.screenmatch.models.Series;
 import br.com.alura.screenmatch.models.Movie;
+import br.com.alura.screenmatch.models.Title;
 import br.com.alura.screenmatch.services.DurationCalculator;
 import br.com.alura.screenmatch.services.FilterRecommendation;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Movie myMovie = new Movie();
-        myMovie.setTitle("Pulp fiction");
+        Movie myMovie = new Movie("Pulp Fiction");
         myMovie.setYear(1995);
         myMovie.setDurationInMinutes(154);
 
@@ -15,7 +19,7 @@ public class Main {
         myMovie.rate(8);
         myMovie.rate(5);
 
-        Series sherlock = new Series();
+        Series sherlock = new Series("Sherlock Holmes");
         sherlock.setTitle("Sherlock Holmes");
         sherlock.setYear(2010);
         sherlock.setSeasons(4);
@@ -42,5 +46,15 @@ public class Main {
         episode.setSerie(sherlock);
         episode.setTotalViews(300);
         filter.filter(episode);
+
+        ArrayList<Title> listMovie = new ArrayList<>();
+        listMovie.add(myMovie);
+        listMovie.add(sherlock);
+
+        System.out.printf("Tamanho da lista: %d\n", listMovie.size());
+        System.out.printf("Primeiro título: %s\n", listMovie.getFirst().getTitle());
+
+        System.out.println(listMovie.getFirst().toString());
+        System.out.println(listMovie.toString());
     }
 }

@@ -8,6 +8,18 @@ public class Series extends Title  implements Classify {
     private boolean active;
     private int minutesPerEpisode;
 
+    public Series(String title) {
+        super(title);
+    }
+
+    public Series(String title, int year) {
+        super(title, year);
+    }
+
+    public Series(String title, int year, String description) {
+        super(title, year, description);
+    }
+
     public int getSeasons() {
         return seasons;
     }

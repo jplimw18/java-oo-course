@@ -9,6 +9,18 @@ public class Movie extends Title implements Classify {
         return  director;
     }
 
+    public Movie(String title) {
+        super(title);
+    }
+
+    public Movie(String title, int year) {
+        super(title, year);
+    }
+
+    public Movie(String title, int year, String description) {
+        super(title, year, description);
+    }
+
     public void setDirector(String director) {
         this.director = director;
     }
